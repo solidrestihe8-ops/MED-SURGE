@@ -1,0 +1,12 @@
+{
+  "name": "body-systems-cbt",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A 250-question Med-Surg CBT practice quiz based on the provided study guide",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

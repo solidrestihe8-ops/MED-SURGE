@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f7f3">
+    <title>MED SURGE | CBT Practice</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="MED SURGE home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none"><path d="M16 27s-10-6.1-10-14a5.6 5.6 0 0 1 10-3.5A5.6 5.6 0 0 1 26 13c0 7.9-10 14-10 14Z" stroke="currentColor" stroke-width="2.1" stroke-linejoin="round"/><path d="M7.5 16h4l2-4 3.2 8 2.2-4H25" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <span>MED<span class="brand-light"> SURGE</span></span>
+        </a>
+        <div class="topbar-note"><span class="status-dot"></span> Your personal study space</div>
+      </header>
+
+      <section id="welcome" class="welcome-layout">
+        <div class="welcome-copy">
+          <div class="eyebrow"><span class="eyebrow-line"></span> MED SURGE · CHALLENGE YOUR CLINICAL REASONING</div>
+          <h1>Know the body.<br><span>Own the exam.</span></h1>
+          <p class="intro">Build real confidence with focused practice across the systems that keep us alive. One question at a time.</p>
+          <div class="trust-row">
+            <span class="avatar-stack" aria-hidden="true"><i>✳</i><i>+</i><i>♥</i></span>
+            <span>Made for curious minds &amp; future caregivers</span>
+          </div>
+        </div>
+
+        <section class="setup-card" aria-labelledby="setup-title">
+          <div class="card-topline"><span class="mini-icon">✳</span><span>YOUR NEXT STUDY SESSION</span><span class="question-total"><b id="total-count">250</b> questions</span></div>
+          <h2 id="setup-title">Set up your test</h2>
+          <p class="card-subtitle">A little practice goes a long way.</p>
+
+          <label class="field-label" for="topic-select">Choose a Med-Surg topic</label>
+          <div class="select-wrap">
+            <select id="topic-select">
+              <option value="">All Med-Surg topics</option>
+            </select>
+            <svg aria-hidden="true" viewBox="0 0 16 16"><path d="m4 6 4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+
+          <div class="field-label length-label">How many questions?</div>
+          <div class="length-options" role="group" aria-label="Choose test length">
+            <button type="button" class="length-option" data-count="10"><strong>10</strong><span>Quick</span></button>
+            <button type="button" class="length-option selected" data-count="25"><strong>25</strong><span>Focused</span></button>
+            <button type="button" class="length-option" data-count="50"><strong>50</strong><span>Deep dive</span></button>
+            <button type="button" class="length-option" data-count="250"><strong>250</strong><span>Full test</span></button>
+          </div>
+          <p id="count-hint" class="count-hint">A focused 25-question practice session</p>
+
+          <button type="button" id="start-button" class="primary-button">Start practicing <span aria-hidden="true">→</span></button>
+          <p class="privacy-note"><span aria-hidden="true">⌁</span> No pressure. Learn at your own pace.</p>
+          <p id="setup-error" class="error-message" role="alert" hidden></p>
+        </section>
+
+        <div class="bottom-note"><span>✦</span> <b>10</b> Med-Surg topics <span class="note-divider">·</span> <b>250</b> challenging fill-in questions <span class="note-divider">·</span> Built from your study guide</div>
+      </section>
+
+      <section id="quiz" class="quiz-layout" hidden>
+        <div class="quiz-sidebar">
+          <button type="button" id="exit-button" class="back-button"><span aria-hidden="true">←</span> Exit practice</button>
+          <div class="sidebar-card">
+            <div class="sidebar-label">YOUR PROGRESS</div>
+            <div class="progress-numbers"><strong id="progress-current">01</strong><span>/</span><span id="progress-total">25</span></div>
+            <div class="progress-track"><span id="progress-bar"></span></div>
+            <p id="answered-label">0 answered</p>
+          </div>
+          <div class="topic-note"><span class="mini-icon">✳</span><div><span>CURRENT TOPIC</span><strong id="current-topic">Cardiovascular</strong></div></div>
+          <div class="sidebar-encouragement"><span>✦</span><p>Take your time.<br>You're doing great.</p></div>
+        </div>
+        <div class="question-area">
+          <div class="question-topbar"><span id="question-number">QUESTION 01</span><span class="level-pill"><span></span> ADVANCED APPLICATION</span></div>
+          <div class="question-card">
+            <div class="question-decoration" aria-hidden="true">?</div>
+            <p class="question-kicker" id="question-category">CARDIOVASCULAR SYSTEM</p>
+            <h2 id="question-text"></h2>
+            <div class="answer-entry">
+              <label for="answer-input">YOUR ANSWER</label>
+              <input id="answer-input" type="text" maxlength="400" autocomplete="off" placeholder="Type your answer here..." aria-describedby="answer-help">
+              <p id="answer-help">Type your answer in your own words. Capitalization does not matter.</p>
+            </div>
+            <div id="feedback" class="feedback" role="status" hidden></div>
+            <div class="question-actions">
+              <span class="keyboard-hint">Type your answer, then check your work</span>
+              <button type="button" id="check-button" class="primary-button" disabled>Check answer <span aria-hidden="true">→</span></button>
+              <button type="button" id="next-button" class="primary-button" hidden>Next question <span aria-hidden="true">→</span></button>
+            </div>
+          </div>
+          <div class="quiz-footer"><span>✳</span> Answers are graded for meaning, not exact wording.</div>
+        </div>
+      </section>
+
+      <section id="results" class="results-layout" hidden>
+        <div class="results-card">
+          <div class="result-icon" aria-hidden="true">✦</div>
+          <p class="eyebrow centered">PRACTICE COMPLETE</p>
+          <h1 id="result-title">Look at you go.</h1>
+          <p id="result-summary" class="result-summary"></p>
+          <div class="score-ring"><div><strong id="final-score">0</strong><span id="score-total">/ 25</span></div></div>
+          <p id="score-message" class="score-message"></p>
+          <div class="results-actions">
+            <button type="button" id="retry-button" class="primary-button">Try another set <span aria-hidden="true">→</span></button>
+            <button type="button" id="home-button" class="secondary-button">Back to home</button>
+          </div>
+        </div>
+      </section>
+
+      <footer class="site-footer"><span>MED SURGE CBT</span><span>Curiosity is a pretty great place to start.</span><span>✳ &nbsp; Study well, feel well.</span></footer>
+    </main>
+  </body>
+</html>
