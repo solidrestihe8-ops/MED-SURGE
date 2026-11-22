@@ -23,7 +23,12 @@ async function requestJson(url, payload) {
     headers: payload ? { "Content-Type": "application/json" } : {},
     body: payload ? JSON.stringify(payload) : undefined
   });
-  const data = await response.json();
+  let data;
+  try {
+    data = JSON.parse(await response.text());
+  } catch {
+    throw new Error("The server returned a webpage instead of JSON. Start the MED SURGE server with `npm start` and open its URL.");
+  }
   if (!response.ok) throw new Error(data.error || "Something went wrong. Please try again.");
   return data;
 }
