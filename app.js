@@ -27,7 +27,7 @@ async function requestJson(url, payload) {
   try {
     data = JSON.parse(await response.text());
   } catch {
-    throw new Error("The server returned a webpage instead of JSON. Start the MED SURGE server with `npm start` and open its URL.");
+    throw new Error("The API returned a webpage instead of JSON. Confirm the API functions are deployed and open the site from its Vercel URL.");
   }
   if (!response.ok) throw new Error(data.error || "Something went wrong. Please try again.");
   return data;
